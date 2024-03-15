@@ -8,7 +8,20 @@ const user = {
     }
 
 }
-
+const obj = {
+  name: "John",
+  regularFunction: function() {
+    console.log(this.name);
+  },
+  arrowFunction: () => {
+    console.log(this.name);
+  }
+};
+obj.regularFunction(); // Output: John
+obj.arrowFunction();   // Output: undefined
+/* the this.name being undefined in the arrow function is due to the lexical scoping(its scope) behavior of arrow functions,
+but also because this in the arrow function refers to the global object, where name is not defined.
+*/
 // user.welcomeMessage()
 // user.username = "sam"
 // user.welcomeMessage()
